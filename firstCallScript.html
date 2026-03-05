@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>First Call Script</title>
+<link rel="stylesheet" href="style.css">
+<script type="module" src="scriptPlayer.js"></script>
+</head>
+<body>
+<h1>First Call Script</h1>
+<div id="script-text"></div>
+<input type="text" id="customer-reply" placeholder="Type customer reply here">
+<button id="next-btn" onclick="nextStep()" disabled>Next Step</button>
+<div id="ai-response"></div>
+
+<script type="module">
+import { loadScript } from './scriptPlayer.js';
+
+const firstCallSteps = [
+    { text: "Hi, is this [Business Name]? It's Summer from RSA Marketing. Have I caught you at a bad time?" },
+    { text: "I was looking at your website and noticed one thing that usually loses enquiries. Can I tell you what it is?" },
+    { text: "Your contact button isn’t very visible on mobile — this can confuse customers.", aiPrompt: "Generate a polite and professional way to explain the issue to a customer" },
+    { text: "If I could show you 2–3 fixes that would improve this, would you like to see them?" },
+    { text: "Best next step is a 10–12 minute audit. Our plans range from £79–£749, but let's do the audit first." }
+];
+
+loadScript(firstCallSteps);
+</script>
+</body>
+</html>
