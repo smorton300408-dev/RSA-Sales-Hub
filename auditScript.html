@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Audit Call Script</title>
+<link rel="stylesheet" href="style.css">
+<script type="module" src="scriptPlayer.js"></script>
+</head>
+<body>
+<h1>Audit Call Script</h1>
+<div id="script-text"></div>
+<input type="text" id="customer-reply" placeholder="Type customer reply here">
+<button id="next-btn" onclick="nextStep()" disabled>Next Step</button>
+<div id="ai-response"></div>
+
+<script type="module">
+import { loadScript } from './scriptPlayer.js';
+
+const auditSteps = [
+    { text: "Confirm goal: More calls/bookings or better online trust?" },
+    { text: "Show 2–3 fixes on screen", aiPrompt: "Generate 2-3 ways to improve this business website based on common issues" },
+    { text: "Recommend ONE package: Most businesses fit £299, but you can start smaller." },
+    { text: "Confirm terms: Month 1 upfront, 6-month minimum." },
+    { text: "Close: 'Shall I send the invoice to [email] now?'" }
+];
+
+loadScript(auditSteps);
+</script>
+</body>
+</html>
